@@ -14,10 +14,10 @@ jobs:
         id: vars
         run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
       - name: Build the tagged Docker image
-        run: docker build . --file Dockerfile --tag pjlamb12/angular-cli:${{steps.vars.outputs.tag}}
+        run: docker build . --file Dockerfile --tag falconmfm/gitlab-kubectl:${{steps.vars.outputs.tag}}
       - name: Push the tagged Docker image
-        run: docker push pjlamb12/angular-cli:${{steps.vars.outputs.tag}}
+        run: docker push falconmfm/gitlab-kubectl:${{steps.vars.outputs.tag}}
       - name: Build the latest Docker image
-        run: docker build . --file Dockerfile --tag pjlamb12/angular-cli:latest
+        run: docker build . --file Dockerfile --tag falconmfm/gitlab-kubectl:latest
       - name: Push the latest Docker image
-        run: docker push pjlamb12/angular-cli:latest
+        run: docker push falconmfm/gitlab-kubectl:latest
